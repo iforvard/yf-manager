@@ -81,8 +81,22 @@ class YFManagerApp:
             # related name ScreenControls
             data="bottom_screen_controls",
         )
-        self.top_path_input = TextField(label="/", value="/", expand=1)
-        self.bottom_path_input = TextField(label="/", value="/", expand=1)
+        self.top_path_input = TextField(
+            on_submit=self.open_dir_by_path,
+            label="/",
+            value="/",
+            expand=1,
+            # related name ScreenControls
+            data="top_screen_controls",
+        )
+        self.bottom_path_input = TextField(
+            on_submit=self.open_dir_by_path,
+            label="/",
+            value="/",
+            expand=1,
+            # related name ScreenControls
+            data="bottom_screen_controls",
+        )
         self.top_screen_dir = GridView(
             expand=1,
             runs_count=5,
