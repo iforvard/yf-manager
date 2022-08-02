@@ -41,7 +41,7 @@ jobs:
                 pyinstaller main.py --noconsole --noconfirm --onefile &&
                 cd dist/ &&
                 zip -r9 main main.app/
-            OUT_FILE_NAME: clipster.zip
+            OUT_FILE_NAME: main.zip
             ASSET_MIME: application/zip
           - os: windows-latest
             TARGET: windows
@@ -50,10 +50,10 @@ jobs:
             ASSET_MIME: application/vnd.microsoft.portable-executable
     steps:
     - uses: actions/checkout@v1
-    - name: Set up Python 3
+    - name: Set up Python 3.8
       uses: actions/setup-python@v2
       with:
-        python-version: 3
+        python-version: 3.8
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
