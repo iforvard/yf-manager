@@ -12,6 +12,8 @@ from flet import (
     ListView,
     Column,
     Row,
+    Icon,
+    IconButton,
 )
 from flet.page import ControlEvent
 
@@ -93,15 +95,48 @@ class BaseApp:
                 self.dir_tree.controls.append(
                     Row(
                         [
-                            TextButton(
-                                icon=icon,
-                                icon_color="blue400",
-                                text=item,
-                                on_click=self.click_tree_item,
-                                data=item,
+                            Column(
+                                [
+                                    TextButton(
+                                        icon=icon,
+                                        icon_color="blue400",
+                                        text=item,
+                                        on_click=self.click_tree_item,
+                                        data=item,
+
+                                    ),
+                                    Row(
+                                        [
+                                            Icon(name=icons.SUBDIRECTORY_ARROW_RIGHT),
+                                            TextButton(
+                                                icon=icon,
+                                                icon_color="blue400",
+                                                text=item,
+                                                on_click=self.click_tree_item,
+                                                data=item,
+
+                                            ),
+                                        ]
+                                    ),
+                                    Row(
+                                        [
+                                            Icon(),
+                                            Icon(name=icons.SUBDIRECTORY_ARROW_RIGHT),
+                                            TextButton(
+                                                icon=icon,
+                                                icon_color="blue400",
+                                                text=item,
+                                                on_click=self.click_tree_item,
+                                                data=item,
+                                            ),
+                                        ]
+                                    )
+                                ]
                             )
+                            
                         ]
-                    )
+                    ),
+
                 )
         self.page.update()
 
